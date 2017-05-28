@@ -1,0 +1,25 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Trap.cs">
+    <Files>
+      <File FileName="Assets/Script/UI/DialogueUIController.cs" Line="32" Column="10" />
+      <File FileName="Assets/Script/CameraControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/ComeAndClear.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/ComeAndDie.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/GameState.cs" Line="445" Column="29" />
+      <File FileName="Assets/Script/SceneOrganizer.cs" Line="12" Column="3" />
+      <File FileName="Assets/Script/Trap.cs" Line="15" Column="18" />
+      <File FileName="Assets/Script/IOGameBehaviour.cs" Line="21" Column="25" />
+      <File FileName="Assets/Script/Player/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Player/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/UI/ChatUIController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/UI/GameUIController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/UI/LoginController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/UI/UIController.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

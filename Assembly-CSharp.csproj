@@ -55,6 +55,7 @@
      <Compile Include="Assets\Script\Player\Player.cs" />
      <Compile Include="Assets\Script\Player\PlayerController.cs" />
      <Compile Include="Assets\Script\SceneOrganizer.cs" />
+     <Compile Include="Assets\Script\Trap.cs" />
      <Compile Include="Assets\Script\UI\ChatUIController.cs" />
      <Compile Include="Assets\Script\UI\DialogueUIController.cs" />
      <Compile Include="Assets\Script\UI\GameUIController.cs" />
@@ -141,8 +142,10 @@
      <Compile Include="Assets\SocketIO\WebsocketSharp\WebSocketState.cs" />
      <Compile Include="Assets\SocketIO\WebsocketSharp\WebSocketStream.cs" />
      <None Include="Assets\SocketIO\JSONObject\readme.txt" />
+     <None Include="Assets\LeanTween\ReadMe.txt" />
      <None Include="Assets\SocketIO\Readme.txt" />
      <None Include="Assets\StreamingAssets\build_info.txt" />
+     <None Include="Assets\LeanTween\License.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -164,6 +167,10 @@
  <Reference Include="UnityEngine.VR">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{8E804344-9C91-3E72-055D-E775CA5C60F6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

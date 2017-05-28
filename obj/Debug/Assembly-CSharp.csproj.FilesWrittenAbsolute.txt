@@ -16,3 +16,9 @@
 /Users/Home/Documents/project99.5.client/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/Home/Documents/project99.5.client/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/Home/Documents/project99.5.client/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/Home/Documents/project99.5.client/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/Home/Documents/project99.5.client/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/Home/Documents/project99.5.client/obj/Debug/Assembly-CSharp.dll
+/Users/Home/Documents/project99.5.client/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/Home/Documents/project99.5.client/Temp/bin/Debug/Assembly-CSharp-firstpass.dll
+/Users/Home/Documents/project99.5.client/Temp/bin/Debug/Assembly-CSharp-firstpass.dll.mdb
