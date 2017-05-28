@@ -32,6 +32,7 @@ public class Player : IOGameBehaviour {
 		
 		//transform.position = simulatedEndPos;
 		//return;
+		return;
 
 		while (simulationTimer <= 1f) {
 			transform.position = Vector3.Lerp (simulatedStartPos, simulatedEndPos, simulationTimer);

@@ -62,8 +62,13 @@ public class PlayerController : IOGameBehaviour {
 			Dictionary<string, string> data = new Dictionary<string, string> ();
 			data ["position"] = newPosition.x + "," + newPosition.y + "," + newPosition.z;
 
+			if (ControlRole == Role.LeftRight)
+				SocketIOComp.Emit("SERVER:MOVELR", new JSONObject(data)); // z
+			else if (ControlRole == Role.UpDown)
+				SocketIOComp.Emit("SERVER:MOVEUD", new JSONObject(data)); // x
+			
 			//Debug.Log ("Attempting move:" + data["position"]);
-			SocketIOComp.Emit("SERVER:MOVE", new JSONObject(data));
+			
 		}
 
 	}

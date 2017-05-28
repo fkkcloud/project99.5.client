@@ -24,6 +24,9 @@ public class GameState : IOGameBehaviour {
 
 	public GameObject CamObj;
 
+	public AudioSource source1;
+	public AudioSource source2;
+
 	int CurrentLevelNumber;
 
 	public Text ResponseText;
@@ -118,7 +121,8 @@ public class GameState : IOGameBehaviour {
 
 		SocketIOComp.On ("CLIENT:CREATE_OTHER", OnOtherUserJoin);
 
-		SocketIOComp.On ("CLIENT:MOVE", OnUserMove);
+		SocketIOComp.On ("CLIENT:MOVE_LEFTRIGHT", OnUserMoveZ);
+		SocketIOComp.On ("CLIENT:MOVE_UPDOWN", OnUserMoveX);
 
 		SocketIOComp.On ("CLIENT:DISCONNECTED", OnUserDisconnect);
 
@@ -157,6 +161,8 @@ public class GameState : IOGameBehaviour {
 	private void OnUserJoined(SocketIOEvent evt){
 
 		// --------- GAME BEGIN ----------
+		source1.volume = 1f;
+
 		string roomName = JsonToString (evt.data.GetField ("room").ToString (), "\"");
 		string[] strArry = roomName.Split(new char[]{'_'});
 		ChannelText.text = "Channel Name: " + strArry[1];
@@ -206,16 +212,27 @@ public class GameState : IOGameBehaviour {
 		//CreateUser(evt, true);
 	}
 
-	private void OnUserMove(SocketIOEvent evt){
+	private void OnUserMoveZ(SocketIOEvent evt){
 		//Debug.Log ("Moved data " + evt.data);
 
 		Vector3 pos = StringToVecter3( JsonToString(evt.data.GetField("position").ToString(), "\"") );
 		string id = JsonToString(evt.data.GetField("id").ToString(), "\"");
 
-		MoveUser (id, pos);
+		MoveUserZ (id, pos);
+	}
+
+	private void OnUserMoveX(SocketIOEvent evt){
+		//Debug.Log ("Moved data " + evt.data);
+
+		Vector3 pos = StringToVecter3( JsonToString(evt.data.GetField("position").ToString(), "\"") );
+		string id = JsonToString(evt.data.GetField("id").ToString(), "\"");
+
+		MoveUserX (id, pos);
 	}
 
 	private void OnUserDisconnect(SocketIOEvent evt){
+
+		source2.volume = 0f;
 		
 		Debug.Log ("disconnected user " + evt.data);
 
@@ -242,6 +259,8 @@ public class GameState : IOGameBehaviour {
 	}
 
 	private void OnOtherUserJoin(SocketIOEvent evt){
+		source2.volume = 1f;
+
 		string name = JsonToString(evt.data.GetField("name").ToString(), "\"");
 
 		Debug.Log (name + " has join as controller to " + myname + "'s room");
@@ -289,8 +308,24 @@ public class GameState : IOGameBehaviour {
 	----------------------------------------------------------------------------------------------------------------
 	*/
 
-	private void MoveUser(string id, Vector3 position){
+	private void MoveUserZ(string id, Vector3 position){
 		Player playerComp = FindUserByID (id);
+		playerComp.gameObject.transform.position = new Vector3(playerComp.gameObject.transform.position.x, playerComp.gameObject.transform.position.y, position.z);
+
+		return;
+
+		playerComp.simulationTimer = 0f;
+		playerComp.simulatedStartPos = playerComp.gameObject.transform.position;
+		playerComp.simulatedEndPos = position;
+	}
+
+	private void MoveUserX(string id, Vector3 position){
+		Player playerComp = FindUserByID (id);
+		playerComp.gameObject.transform.position = new Vector3(position.x, playerComp.gameObject.transform.position.y, playerComp.gameObject.transform.position.z);
+			
+		return;
+
+
 		playerComp.simulationTimer = 0f;
 		playerComp.simulatedStartPos = playerComp.gameObject.transform.position;
 		playerComp.simulatedEndPos = position;
@@ -343,7 +378,9 @@ public class GameState : IOGameBehaviour {
 		data ["position"] = PlayerControllerComp.PlayerObject.transform.position.x + "," + PlayerControllerComp.PlayerObject.transform.position.y + "," + PlayerControllerComp.PlayerObject.transform.position.z;
 
 		//Debug.Log ("Attempting move:" + data["position"]);
-		SocketIOComp.Emit("SERVER:MOVE", new JSONObject(data));
+
+		SocketIOComp.Emit("SERVER:MOVELR", new JSONObject(data)); // z
+		SocketIOComp.Emit("SERVER:MOVEUD", new JSONObject(data)); // x
 	}
 
 	public void GameOver(){
