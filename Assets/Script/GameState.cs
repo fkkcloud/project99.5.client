@@ -310,7 +310,9 @@ public class GameState : IOGameBehaviour {
 
 	private void MoveUserZ(string id, Vector3 position){
 		Player playerComp = FindUserByID (id);
-		playerComp.gameObject.transform.position = new Vector3(playerComp.gameObject.transform.position.x, playerComp.gameObject.transform.position.y, position.z);
+		playerComp.gameObject.transform.position = new Vector3(playerComp.gameObject.transform.position.x, 
+			playerComp.gameObject.transform.position.y, 
+			position.z);
 
 		return;
 
@@ -321,7 +323,9 @@ public class GameState : IOGameBehaviour {
 
 	private void MoveUserX(string id, Vector3 position){
 		Player playerComp = FindUserByID (id);
-		playerComp.gameObject.transform.position = new Vector3(position.x, playerComp.gameObject.transform.position.y, playerComp.gameObject.transform.position.z);
+		playerComp.gameObject.transform.position = new Vector3(position.x, 
+			playerComp.gameObject.transform.position.y, 
+			playerComp.gameObject.transform.position.z);
 			
 		return;
 
